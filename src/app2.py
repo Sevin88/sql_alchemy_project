@@ -50,7 +50,6 @@ class Customer(Base):
     
     customers_obj = relationship('Order', back_populates='orders_obj')
 
-
 class Order(Base):
     __tablename__ = 'orders'
 
@@ -61,12 +60,9 @@ class Order(Base):
 
     customer_id = Column(Integer, ForeignKey('customers.id'))
 
-
     orders_obj = relationship('Customer', back_populates='customers_obj')
 
-
 Base.metadata.create_all(engin)
-
 
 Session = sessionmaker(bind=engin)
 sessionloacl = Session()
